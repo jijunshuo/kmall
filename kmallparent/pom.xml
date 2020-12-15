@@ -23,6 +23,9 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <mybatis.version>2.1.2</mybatis.version>
+        <dubbo.spring.boot.starter.version>2.7.1</dubbo.spring.boot.starter.version>
+        <dubbo.version>2.7.1</dubbo.version>
+        <dubbo.dependencies.zookeeper.version>2.7.1</dubbo.dependencies.zookeeper.version>
     </properties>
     <!--maven的依赖具有继承作用 如果使用只使用 dependencies 那么继承这个项目的子项目也会导入mybatis驱动 所以应该用 dependencyManagement-->
     <dependencyManagement>
@@ -31,6 +34,23 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
+            </dependency>
+            <!--dubbo-->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.spring.boot.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-zookeeper</artifactId>
+                <version>${dubbo.dependencies.zookeeper.version}</version>
+                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
