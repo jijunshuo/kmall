@@ -28,7 +28,16 @@ public class AttrServiceImpl implements AttrService {
         if (catalog3Id != 0 && catalog3Id != null) {
             example.createCriteria().andCatalog3IdEqualTo(catalog3Id);
         }
-        return pmsBaseAttrInfoMapper.selectByExample(example);
+        List<PmsBaseAttrInfo> pmsBaseAttrInfos = pmsBaseAttrInfoMapper.selectByExample(example);
+        for (PmsBaseAttrInfo pmsBaseAttrInfo : pmsBaseAttrInfos) {
+            PmsBaseAttrValueExample example1 = new PmsBaseAttrValueExample();
+            PmsBaseAttrValueExample.Criteria criteria1 = example1.createCriteria();
+            criteria1.andAttrIdEqualTo(pmsBaseAttrInfo.getId());
+            List<PmsBaseAttrValue> pmsBaseAttrValues = pmsBaseAttrValueMapper.selectByExample(example1);
+            pmsBaseAttrInfo.setAttrValueList(pmsBaseAttrValues);
+        }
+        return pmsBaseAttrInfos;
+
     }
 
     @Override
@@ -44,7 +53,7 @@ public class AttrServiceImpl implements AttrService {
                 example.createCriteria().andAttrIdEqualTo(attrInfo.getId());
                 pmsBaseAttrValueMapper.deleteByExample(example);
             }
-            
+
             pmsBaseAttrValueMapper.insertBatch(attrInfo.getId(), attrInfo.getAttrValueList());
             return 1;
         } catch (Exception ex) {
