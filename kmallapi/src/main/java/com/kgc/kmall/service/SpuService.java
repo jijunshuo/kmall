@@ -1,9 +1,6 @@
 package com.kgc.kmall.service;
 
-import com.kgc.kmall.bean.PmsBaseSaleAttr;
-import com.kgc.kmall.bean.PmsProductImage;
-import com.kgc.kmall.bean.PmsProductInfo;
-import com.kgc.kmall.bean.PmsProductSaleAttr;
+import com.kgc.kmall.bean.*;
 
 import java.util.List;
 
@@ -18,4 +15,9 @@ public interface SpuService {
     List<PmsProductSaleAttr> spuSaleAttrList(Long spuId);
 
     List<PmsProductImage> spuImageList(Long spuId);
+
+
+    List<PmsProductSaleAttr> spuSaleAttrListIsCheck(Long spuId, Long skuId);
+
+
 }

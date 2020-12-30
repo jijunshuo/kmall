@@ -1,9 +1,6 @@
 package com.kgc.kmall.manage.service;
 
-import com.kgc.kmall.bean.PmsSkuAttrValue;
-import com.kgc.kmall.bean.PmsSkuImage;
-import com.kgc.kmall.bean.PmsSkuInfo;
-import com.kgc.kmall.bean.PmsSkuSaleAttrValue;
+import com.kgc.kmall.bean.*;
 import com.kgc.kmall.manage.mapper.PmsSkuAttrValueMapper;
 import com.kgc.kmall.manage.mapper.PmsSkuImageMapper;
 import com.kgc.kmall.manage.mapper.PmsSkuInfoMapper;
@@ -56,5 +53,17 @@ public class SkuServiceImpl implements SkuService {
             }
         }
         return "success";
+    }
+
+    @Override
+    public PmsSkuInfo selectById(Long skuId) {
+        PmsSkuInfo pmsSkuInfo = pmsSkuInfoMapper.selectByPrimaryKey(skuId);
+
+        return pmsSkuInfo;
+    }
+
+    @Override
+    public List<PmsSkuInfo> selectBySpuId(Long spuId) {
+        return pmsSkuInfoMapper.selectBySpuId(spuId);
     }
 }

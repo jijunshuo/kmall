@@ -10,6 +10,16 @@ public class PmsProductSaleAttrValue implements Serializable {
     private Long saleAttrId;
 
     private String saleAttrValueName;
+    //增加isChecked
+    private Long isChecked;
+
+    public Long getIsChecked() {
+        return isChecked;
+    }
+
+    public void setIsChecked(Long isChecked) {
+        this.isChecked = isChecked;
+    }
 
     public Long getId() {
         return id;

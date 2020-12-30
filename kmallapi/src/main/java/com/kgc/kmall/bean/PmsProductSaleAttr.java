@@ -11,6 +11,8 @@ public class PmsProductSaleAttr implements Serializable {
     private Long saleAttrId;
 
     private String saleAttrName;
+
+
     //spuSaleAttrValueList
     private List<PmsProductSaleAttrValue> spuSaleAttrValueList;
 

@@ -26,10 +26,17 @@
         <dubbo.spring.boot.starter.version>2.7.1</dubbo.spring.boot.starter.version>
         <dubbo.version>2.7.1</dubbo.version>
         <dubbo.dependencies.zookeeper.version>2.7.1</dubbo.dependencies.zookeeper.version>
+        <fastjson.version>1.2.46</fastjson.version>
     </properties>
     <!--maven的依赖具有继承作用 如果使用只使用 dependencies 那么继承这个项目的子项目也会导入mybatis驱动 所以应该用 dependencyManagement-->
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
